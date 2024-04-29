@@ -18,15 +18,18 @@
   <body>
     <div data-bind="foreach: categories" class="categories">
       <div class="category border">
-        <button class="toggle">
-          <img src="chevron_up.svg" class="chevron" />
+        <button data-bind="click: toggle" class="toggle">
+          <img
+            src="chevron_up.svg"
+            data-bind="css: { chevron: true, opened: opened() }"
+          />
         </button>
         <span data-bind="text: name"></span>
         <button class="drag">
           <img src="drag.svg" />
         </button>
       </div>
-      <div data-bind="foreach: docs" class="docs">
+      <div data-bind="foreach: docs, opened: opened()" class="docs">
         <div class="doc border">
           <span data-bind="text: name"></span>
           <button class="drag">

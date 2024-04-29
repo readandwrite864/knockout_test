@@ -22,9 +22,13 @@ body {
 
 .docs {
   padding-left: 16px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
 }
 
 .doc {
+  background: #ffffff;
   padding: 10px 16px;
   height: 35px;
 
@@ -39,11 +43,12 @@ body {
 .border {
   border: 1px solid #dfe4ef;
   box-sizing: border-box;
-  margin: -1px 0;
+  margin-top: -1px;
 }
 
 button {
   all: unset;
+  user-select: none;
   box-sizing: border-box;
   cursor: pointer;
 
@@ -60,7 +65,11 @@ button.toggle {
 }
 
 .chevron {
+  transform: scaleY(-1);
+}
+.chevron.opened {
   margin-top: -1px;
+  transform: initial;
 }
 
 .drag {
