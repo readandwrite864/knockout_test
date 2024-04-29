@@ -1,0 +1,68 @@
+body {
+  font-family: Fira Sans;
+}
+
+.categories {
+  max-width: 1190px;
+}
+
+.category {
+  background: #ffffff;
+  padding: 13px 16px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 16.2px;
+}
+
+.docs {
+  padding-left: 16px;
+}
+
+.doc {
+  padding: 10px 16px;
+  height: 35px;
+
+  display: flex;
+  align-items: center;
+
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 14.04px;
+}
+
+.border {
+  border: 1px solid #dfe4ef;
+  box-sizing: border-box;
+  margin: -1px 0;
+}
+
+button {
+  all: unset;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button.toggle {
+  border: 1px solid #d3d8df;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+}
+
+.chevron {
+  margin-top: -1px;
+}
+
+.drag {
+  margin-left: auto;
+}

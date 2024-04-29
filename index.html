@@ -4,12 +4,39 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Knockout Test</title>
+
+    <link rel="stylesheet" href="./index.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
-    <strong data-bind="text: message"></strong>
+    <div data-bind="foreach: categories" class="categories">
+      <div class="category border">
+        <button class="toggle">
+          <img src="chevron_up.svg" class="chevron" />
+        </button>
+        <span data-bind="text: name"></span>
+        <button class="drag">
+          <img src="drag.svg" />
+        </button>
+      </div>
+      <div data-bind="foreach: docs" class="docs">
+        <div class="doc border">
+          <span data-bind="text: name"></span>
+          <button class="drag">
+            <img src="drag.svg" />
+          </button>
+        </div>
+      </div>
+    </div>
   </body>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"></script>
-  <script src="./index.js"></script>
+  <script src="./index.js" type="module"></script>
 </html>
