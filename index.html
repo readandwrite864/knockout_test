@@ -16,30 +16,48 @@
   </head>
 
   <body>
-    <div data-bind="foreach: categories" class="categories">
-      <div class="category border">
-        <button data-bind="click: toggle" class="toggle">
-          <img
-            src="chevron_up.svg"
-            data-bind="css: { chevron: true, opened: opened() }"
-          />
-        </button>
-        <span data-bind="text: name"></span>
-        <button class="drag">
-          <img src="drag.svg" />
-        </button>
-      </div>
-      <div data-bind="foreach: docs, opened: opened()" class="docs">
-        <div class="doc border">
-          <span data-bind="text: name"></span>
-          <button class="drag">
-            <img src="drag.svg" />
+    <div
+      data-bind="sortable: { foreach: categories, options: $root.sortableCategoriesOptions, manuallyHandleUpdateEvents: true }"
+      class="categories"
+    >
+      <div class="draggable">
+        <div
+          data-bind="event: { 
+            mouseover: () => onMouseOver($root.draggingDoc),
+            mouseout: onMouseOut
+          }"
+          class="category border"
+        >
+          <button data-bind="click: toggle" class="toggle">
+            <img
+              src="chevron_up.svg"
+              data-bind="css: { chevron: true, opened: opened() }"
+            />
           </button>
+          <span data-bind="text: name"></span>
+          <button class="drag-handle">
+            <img src="drag-handle.svg" />
+          </button>
+        </div>
+        <div
+          data-bind="sortable: { foreach: docs, options: $root.sortableDocsOptions, manuallyHandleUpdateEvents: true }, opened: opened()"
+          class="docs"
+        >
+          <div class="draggable">
+            <div class="doc border">
+              <span data-bind="text: name"></span>
+              <button class="drag-handle">
+                <img src="drag-handle.svg" />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </body>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"></script>
+  <script src="./lib/Sortable.min.js"></script>
+  <script src="./lib/knockout-sortable.js"></script>
   <script src="./index.js" type="module"></script>
 </html>

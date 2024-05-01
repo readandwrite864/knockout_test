@@ -1,5 +1,6 @@
 body {
   font-family: Fira Sans;
+  margin: 50px 30px;
 }
 
 .categories {
@@ -22,7 +23,6 @@ body {
 
 .docs {
   padding-left: 16px;
-  max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
 }
@@ -59,8 +59,10 @@ button {
 
 button.toggle {
   border: 1px solid #d3d8df;
-  width: 22px;
-  height: 22px;
+  min-width: 22px;
+  max-width: 22px;
+  min-height: 22px;
+  max-height: 22px;
   border-radius: 50%;
 }
 
@@ -72,6 +74,32 @@ button.toggle {
   transform: initial;
 }
 
-.drag {
+.drag-handle {
   margin-left: auto;
+  cursor: move;
+}
+
+.sortable-ghost,
+.sortable-clone {
+  opacity: 0.2;
+}
+
+.sortable-drag {
+  opacity: 1 !important;
+}
+.sortable-drag .doc,
+.sortable-drag .category {
+  box-shadow: 0px 3px 16px 0px #0066ffb2;
+}
+.sortable-drag .docs {
+  display: none;
+}
+
+.sortable-ghost {
+  opacity: 1;
+  background: #0066ff;
+  height: 5px;
+}
+.sortable-ghost > * {
+  display: none;
 }
