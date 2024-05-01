@@ -10,7 +10,7 @@ function Category({ name, docs }) {
     self.opened(!self.opened());
   };
 
-  self.openThreshold = 500;
+  self.openThreshold = 250;
   self.openTimeout = -1;
   self.onMouseOver = function (draggingDoc) {
     if (!draggingDoc) return;

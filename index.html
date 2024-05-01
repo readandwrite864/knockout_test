@@ -17,20 +17,28 @@
 
   <body>
     <div
-      data-bind="sortable: { foreach: categories, options: $root.sortableCategoriesOptions, manuallyHandleUpdateEvents: true }"
+      data-bind="
+        sortable: {
+          foreach: categories,
+          options: $root.sortableCategoriesOptions,
+          manuallyHandleUpdateEvents: true 
+        }
+      "
       class="categories"
     >
       <div class="draggable">
         <div
-          data-bind="event: { 
-            mouseover: () => onMouseOver($root.draggingDoc),
-            mouseout: onMouseOut
-          }"
+          data-bind="
+            event: { 
+              mouseover: () => onMouseOver($root.draggingDoc),
+              mouseout: onMouseOut
+            }
+          "
           class="category border"
         >
           <button data-bind="click: toggle" class="toggle">
             <img
-              src="chevron_up.svg"
+              src="./assets/chevron_up.svg"
               data-bind="css: { chevron: true, opened: opened() }"
             />
           </button>
@@ -41,7 +49,14 @@
           ></button>
         </div>
         <div
-          data-bind="sortable: { foreach: docs, options: $root.sortableDocsOptions, manuallyHandleUpdateEvents: true }, opened: opened()"
+          data-bind="
+            sortable: {
+              foreach: docs,
+              options: $root.sortableDocsOptions,
+              manuallyHandleUpdateEvents: true
+            }, 
+            opened: opened(),
+          "
           class="docs"
         >
           <div class="draggable">
@@ -59,8 +74,8 @@
   </body>
 
   <script type="text/html" id="drag-handle-template">
-    <img src="drag-handle.svg" class="inactive" />
-    <img src="drag-handle-active.svg" class="active" />
+    <img src="./assets/drag-handle.svg" class="inactive" />
+    <img src="./assets/drag-handle-active.svg" class="active" />
   </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"></script>
