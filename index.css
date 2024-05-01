@@ -78,6 +78,15 @@ button.toggle {
   margin-left: auto;
   cursor: move;
 }
+.drag-handle .active {
+  display: none;
+}
+.sortable-drag .drag-handle .inactive {
+  display: none;
+}
+.sortable-drag .drag-handle .active {
+  display: initial;
+}
 
 .sortable-ghost,
 .sortable-clone {

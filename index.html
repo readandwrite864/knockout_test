@@ -35,9 +35,10 @@
             />
           </button>
           <span data-bind="text: name"></span>
-          <button class="drag-handle">
-            <img src="drag-handle.svg" />
-          </button>
+          <button
+            data-bind="template: 'drag-handle-template'"
+            class="drag-handle"
+          ></button>
         </div>
         <div
           data-bind="sortable: { foreach: docs, options: $root.sortableDocsOptions, manuallyHandleUpdateEvents: true }, opened: opened()"
@@ -46,15 +47,21 @@
           <div class="draggable">
             <div class="doc border">
               <span data-bind="text: name"></span>
-              <button class="drag-handle">
-                <img src="drag-handle.svg" />
-              </button>
+              <button
+                data-bind="template: 'drag-handle-template'"
+                class="drag-handle"
+              ></button>
             </div>
           </div>
         </div>
       </div>
     </div>
   </body>
+
+  <script type="text/html" id="drag-handle-template">
+    <img src="drag-handle.svg" class="inactive" />
+    <img src="drag-handle-active.svg" class="active" />
+  </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"></script>
   <script src="./lib/Sortable.min.js"></script>
